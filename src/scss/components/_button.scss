@@ -130,7 +130,8 @@
     }
   }
 
-  &--cart {
+  a {
+    /*   &--cart if a not working(Header cart button)  */
     display: flex;
     align-items: center;
     line-height: 23px;
