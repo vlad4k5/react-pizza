@@ -1,9 +1,10 @@
 import { useState } from "react"
 import classnames from "classnames"
 import PropTypes from "prop-types"
+import React from "react"
 
 
-const PizzaBlock = ({imageUrl, name, price, types, sizes}) => {
+const PizzaBlock = React.memo(({imageUrl, name, price, types, sizes}) => {
 
     const availableTypes = ["тонкое", "традиционное"]
     const availableSizes = [26,30,40]
@@ -37,7 +38,7 @@ const PizzaBlock = ({imageUrl, name, price, types, sizes}) => {
       <ul>
         {availableSizes.map((size, index) => (
         <li 
-        onClick={()=> onSelectSize(index)}
+        onClick={()=> onSelectSize(size)}
         key={`${size} ${index}`}
         className={classnames({
             'active': activeSize === size,
@@ -62,11 +63,11 @@ const PizzaBlock = ({imageUrl, name, price, types, sizes}) => {
           />
         </svg>
         <span>Добавить</span>
-        <i>2</i>
+        <i>1  </i>
       </div>
     </div>
   </div>
-}
+})
 
 PizzaBlock.propTypes = {
     id: PropTypes.number.isRequired,
