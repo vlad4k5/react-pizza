@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { fetchPizzas } from "../redux/reducers/pizzas";
 import FakePizzaBlock from "../components/FakePizzaBlock";
 import { useCallback } from "react";
+import { addPizzaToCart } from "../redux/reducers/cart";
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
 
   const dispatch = useDispatch()
   const items = useSelector(({pizzas}) => pizzas.items)
+  const cartItems = useSelector(({cart}) => cart.items)
   const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded)
   const {category, sortBy} = useSelector(({filters}) => filters)
 
@@ -40,6 +42,9 @@ const Home = () => {
   }, [dispatch])
 
 
+  const handleAddPizzaToCart = (obj) => {
+    dispatch(addPizzaToCart(obj))
+  }
 
     return  <div className="container">
     <div className="content__top">
@@ -56,7 +61,12 @@ const Home = () => {
     </div>
     <h2 className="content__title">Все пиццы</h2>
     <div className="content__items">
-      {isLoaded ? items.map(i => <PizzaBlock key={i.id} {...i} />) 
+      {isLoaded 
+      ? items.map(i => <PizzaBlock 
+        onClickAddPizza={handleAddPizzaToCart}
+        addedCount={cartItems[i.id]? cartItems[i.id].length: 0}
+        key={i.id} 
+        {...i} />) 
       : [...Array(12)].map( (i, index) =><FakePizzaBlock key={index}/>)}
     </div>
   </div>     
