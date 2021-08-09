@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import CartItem from "../components/CartItem"
-import { clearCart } from "../redux/reducers/cart"
+import { addPizzaToCart, clearCart, decreasePizzasCount, deletePizzaFromCart } from "../redux/reducers/cart"
+import emptyCart from "../assets/img/empty-cart.png"
+import { Link } from "react-router-dom"
+
 
  const Cart = () => {
 
@@ -10,9 +13,18 @@ import { clearCart } from "../redux/reducers/cart"
     const onClearCart = () => {
       dispatch(clearCart())
     }
+    const onClickPlus = (pizza) => {
+      dispatch(addPizzaToCart(pizza))
+    }
+    const onClickMinus = (pizza) => {
+      dispatch(decreasePizzasCount(pizza))
+    }
+    const onClickRemovePizza = (pizza) => {
+      dispatch(deletePizzaFromCart(pizza))
+    }
 
     return <div className="container container--cart">
-    <div className="cart">
+    {items.length !== 0? <div className="cart">
       <div className="cart__top">
         <h2 className="content__title"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -36,15 +48,12 @@ import { clearCart } from "../redux/reducers/cart"
         {items && items.map(i => 
         <CartItem 
         key={`${i.id} ${i.size} ${i.type}`}
-        pizza={i}
-        id={i.id}
-        imageUrl={i.imageUrl}
-        name={i.name} 
-        price={i.price}
-        type={i.type} 
-        size={i.size} 
+        onClickPlus={onClickPlus}
+        onClickMinus={onClickMinus}
+        onClickRemovePizza={onClickRemovePizza}
         pizzasAdded={i.pizzasAdded} 
-        pizzasTotalPrice={i.pizzasTotalPrice} />)}
+        pizzasTotalPrice={i.pizzasTotalPrice} 
+        {...i}/>)}
       </div>
 
 
@@ -55,19 +64,30 @@ import { clearCart } from "../redux/reducers/cart"
           <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
         </div>
         <div className="cart__bottom-buttons">
-          <a href="/" className="button button--outline button--add go-back-btn">
+          <Link to="/" className="button button--outline button--add go-back-btn">
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
 
             <span>Вернуться назад</span>
-          </a>
+          </Link>
           <div className="button pay-btn">
             <span>Оплатить сейчас</span>
           </div>
         </div>
       </div>
     </div>
+    : <div class="cart cart--empty">
+    <h2>Корзина пустая <icon>😕</icon></h2>
+    <p>
+      Вероятней всего, вы не заказывали ещё пиццу.<br />
+      Для того, чтобы заказать пиццу, перейди на главную страницу.
+    </p>
+    <img src={emptyCart} alt="Empty cart" />
+    <Link to="/" class="button button--black">
+      <span>Вернуться назад</span>
+    </Link>
+  </div>}
   </div>
 }
 export default Cart
