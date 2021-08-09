@@ -1,11 +1,15 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import CartItem from "../components/CartItem"
+import { clearCart } from "../redux/reducers/cart"
 
  const Cart = () => {
 
     const {items, totalPrice, totalCount} = useSelector(({cart}) => cart)
-
-    const pizzas = Object.keys(items)
+    const dispatch = useDispatch()
+    
+    const onClearCart = () => {
+      dispatch(clearCart())
+    }
 
     return <div className="container container--cart">
     <div className="cart">
@@ -24,13 +28,24 @@ import CartItem from "../components/CartItem"
             <path d="M11.6666 9.16667V14.1667" stroke="#B6B6B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
 
-          <span>Очистить корзину</span>
+          <span onClick={onClearCart}>Очистить корзину</span>
         </div>
       </div>
 
-      {/* <div className="content__items">
-        <CartItem name="Папперони фреш с перцем" type="тонкое" size={26} />
-      </div> */}
+      <div className="content__items">
+        {items && items.map(i => 
+        <CartItem 
+        key={`${i.id} ${i.size} ${i.type}`}
+        pizza={i}
+        id={i.id}
+        imageUrl={i.imageUrl}
+        name={i.name} 
+        price={i.price}
+        type={i.type} 
+        size={i.size} 
+        pizzasAdded={i.pizzasAdded} 
+        pizzasTotalPrice={i.pizzasTotalPrice} />)}
+      </div>
 
 
 

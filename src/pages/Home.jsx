@@ -46,6 +46,34 @@ const Home = () => {
     dispatch(addPizzaToCart(obj))
   }
 
+
+  // const obj = {
+  //   id: 7,
+  //   imageUrl: "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
+  //   name: "Пепперони Фреш с перцем",
+  //   types: [0,1],
+  //   sizes: [26,30,40],
+  //   price: 803,
+  //   category: 0,
+  //   rating: 4}
+
+
+    // // console.log(cartItems[0].id)
+    // if (cartItems.length > 0){
+    //   const result = cartItems.filter(item => item.id === obj.id).reduce((sum, i) => i.pizzasAdded + sum, 0)
+    //   console.log(result)
+    //   // console.log([{a: 5},{a: 6}].reduce((i, sum) =>  i + sum.a, 0))
+    // }
+    
+
+
+
+
+
+
+
+
+
     return  <div className="container">
     <div className="content__top">
       <Categories 
@@ -63,8 +91,9 @@ const Home = () => {
     <div className="content__items">
       {isLoaded 
       ? items.map(i => <PizzaBlock 
+        cartItems={cartItems}
         onClickAddPizza={handleAddPizzaToCart}
-        addedCount={cartItems[i.id]? cartItems[i.id].length: 0}
+        addedCount={ cartItems.filter(item => item.id === i.id).reduce((sum, i) => i.pizzasAdded + sum, 0) }
         key={i.id} 
         {...i} />) 
       : [...Array(12)].map( (i, index) =><FakePizzaBlock key={index}/>)}

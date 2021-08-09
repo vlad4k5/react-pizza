@@ -5,29 +5,30 @@ import React from "react"
 import Button from "./Button"
 
 
-const PizzaBlock = React.memo(({id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount}) => {
-    const availableTypes = ["тонкое", "традиционное"]
-    const availableSizes = [26,30,40]
-    const [activeType, setActiveType] = useState(types[0])
-    const [activeSize, setActiveSize] = useState(sizes[0])
+const PizzaBlock = React.memo(({id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount, cartItems}) => {
+
+  const availableTypes = ["тонкое", "традиционное"]
+  const availableSizes = [26,30,40]
+  const [activeType, setActiveType] = useState(types[0])
+  const [activeSize, setActiveSize] = useState(sizes[0])
+  
+
+  let currentPizzasAdded = cartItems.filter(item => item.id === id && item.size === activeSize && item.type === availableTypes[activeType]).reduce((sum, i) => i.pizzasAdded + sum, 0)
 
 
-    const onSelectType = (index) => {
-        setActiveType(index)
-    }
-    const onSelectSize = (index) => {
-        setActiveSize(index)
-    }
+  const onSelectType = (index) => {
+    setActiveType(index)
+  }
+  const onSelectSize = (index) => {
+    setActiveSize(index)
+  }
+
+  const onAddPizza = () => {
+    onClickAddPizza({id, imageUrl, name, price, size: activeSize, type: availableTypes[activeType]})
+  }
 
 
-
-    const onAddPizza = () => {
-      onClickAddPizza({id, imageUrl, name, price, size: activeSize, type: availableTypes[activeType]})
-    }
-
-
-
-    return <div className="pizza-block">
+  return <div className="pizza-block">
     <img className="pizza-block__image" src={imageUrl} alt="Pizza"/>
     <h4 className="pizza-block__title">{name}</h4>
     <div className="pizza-block__selector">
@@ -71,7 +72,7 @@ const PizzaBlock = React.memo(({id, imageUrl, name, price, types, sizes, onClick
           />
         </svg>
         <span>Добавить</span>
-        {addedCount !==0 &&<i>{addedCount}</i>}
+        {currentPizzasAdded !==0 &&<i>{currentPizzasAdded}</i>}
       </Button>
     </div>
   </div>
