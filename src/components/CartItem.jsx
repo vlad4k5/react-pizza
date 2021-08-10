@@ -45,7 +45,7 @@ const CartItem = React.memo(({id, price, name, type, size, pizzasAdded, pizzasTo
                 </Button>
             </div>
     <div className="cart__item-price">
-    <b>{pizzasTotalPrice} ₽</b>
+    <b>{pizzasTotalPrice} грн.</b>
     </div>
     <div className="cart__item-remove" onClick={onDeletePizza}>
         <Button className="button button--circle" outline>

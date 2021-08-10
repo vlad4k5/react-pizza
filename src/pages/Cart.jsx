@@ -61,7 +61,7 @@ import { Link } from "react-router-dom"
       <div className="cart__bottom">
         <div className="cart__bottom-details">
           <span> Всего пицц: <b>{totalCount} шт.</b> </span>
-          <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
+          <span> Сумма заказа: <b>{totalPrice} грн.</b> </span>
         </div>
         <div className="cart__bottom-buttons">
           <Link to="/" className="button button--outline button--add go-back-btn">
@@ -78,7 +78,7 @@ import { Link } from "react-router-dom"
       </div>
     </div>
     : <div class="cart cart--empty">
-    <h2>Корзина пустая <icon>😕</icon></h2>
+    <h2>Корзина пустая 😕</h2>
     <p>
       Вероятней всего, вы не заказывали ещё пиццу.<br />
       Для того, чтобы заказать пиццу, перейди на главную страницу.
