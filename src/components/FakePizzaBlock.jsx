@@ -24,5 +24,4 @@ const FakePizzaBlock = (props) => (
     <rect x="125" y="410" rx="20" ry="20" width="150" height="45" />
   </ContentLoader>
 )
-
 export default FakePizzaBlock

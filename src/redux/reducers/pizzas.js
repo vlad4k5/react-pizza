@@ -1,9 +1,7 @@
 import axios from "axios";
 
-
 const SET_PIZZAS = "pizzas/SET_PIZZAS";
 const SET_LOADING = "pizzas/SET_LOADING";
-
 
 const initialState = {
     items: [],
@@ -18,21 +16,15 @@ const pizzas = (state = initialState, action) => {
     }
 }
 
-
 export const setPizzas = (payload) => ({type: SET_PIZZAS, payload })
 export const setLoading = (payload) => ({type: SET_LOADING, payload })
 
-
-
-export const fetchPizzas = (sortBy, category) => dispatch => {
+export const fetchPizzas = (sortBy, category) => async dispatch => {
     dispatch(setLoading(false))
-    axios.get(`https://my-json-server.typicode.com/vlad4k5/react-pizza/pizzas?${category !== null ? `category=${category}`: ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
-    .then(res => {
-      dispatch(setPizzas(res.data))
-    })
+
+    const res = await axios.get(`https://my-json-server.typicode.com/vlad4k5/react-pizza/pizzas?${category !== null ? `category=${category}`: ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
+
+    dispatch(setPizzas(res.data))
 }
-
-
-
 
 export default pizzas;

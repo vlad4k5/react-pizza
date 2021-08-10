@@ -6,15 +6,12 @@ import cart from "./reducers/cart";
 
 
 const rootReducer = combineReducers({filters, pizzas, cart})
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  // for using redux devtools
-
-
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  // need for using redux DevTools
 
 
 const store = createStore(
     rootReducer, 
     composeEnhancers( applyMiddleware(thunk))
-    );
+);
 
 export default store

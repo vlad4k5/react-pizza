@@ -3,9 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 
-
 const App = () => {
-
   return <div className="wrapper">
     <Header />
     <div className="content">
@@ -16,5 +14,4 @@ const App = () => {
     </div>
   </div>
 }
-
 export default App

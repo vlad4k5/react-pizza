@@ -3,7 +3,6 @@ const DECREASE_PIZZAS_COUNT = "cart/DECREASE_PIZZAS_COUNT";
 const DELETE_PIZZA_FROM_CART = "cart/DELETE_PIZZA_FROM_CART";
 const CLEAR_CART = "cart/CLEAR_CART";
 
-
 const initialState = {
     items: [],
     totalPrice: 0,
@@ -12,7 +11,6 @@ const initialState = {
 
 const cart = (state = initialState, action) => {
     switch(action.type){
-
 
         case ADD_PIZZA_TO_CART: 
         const isPizzaAdded = state.items.find(i => i.id === action.payload.id && i.size === action.payload.size && i.type === action.payload.type)
@@ -32,14 +30,12 @@ const cart = (state = initialState, action) => {
             return obj
         }
 
-
         case DELETE_PIZZA_FROM_CART:
         const deletedPizza = state.items.find(i => i.id === action.payload.id && i.size === action.payload.size && i.type === action.payload.type)
         const filteredPizzas = state.items.filter(i => i !== deletedPizza)
         const newTotalPrice = state.totalPrice - deletedPizza.pizzasTotalPrice
         const newTotalCount = state.totalCount - deletedPizza.pizzasAdded
         return {...state, items: filteredPizzas, totalPrice: newTotalPrice , totalCount: newTotalCount }
-
 
         case DECREASE_PIZZAS_COUNT: 
         const pizza = state.items.find(i => i.id === action.payload.id && i.size === action.payload.size && i.type === action.payload.type)
@@ -59,13 +55,9 @@ const cart = (state = initialState, action) => {
     }
 }
 
-
-
 export const addPizzaToCart = (payload) => ({type: ADD_PIZZA_TO_CART, payload })
 export const decreasePizzasCount = (payload) => ({type: DECREASE_PIZZAS_COUNT, payload })
 export const deletePizzaFromCart = (payload) => ({type: DELETE_PIZZA_FROM_CART, payload })
 export const clearCart = () => ({type: CLEAR_CART,  })
-
-
 
 export default cart;
