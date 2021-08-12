@@ -7,7 +7,7 @@ const Header = () => {
 
   const {totalPrice, totalCount} = useSelector(({cart}) => cart)
 
-  return <div className="header">
+  return <header className="header">
   <div className="container">
     <Link to="/">
       <div className="header__logo">
@@ -37,6 +37,6 @@ const Header = () => {
       </Button>
     </div>
   </div>
-</div>
+</header>
 }
 export default Header

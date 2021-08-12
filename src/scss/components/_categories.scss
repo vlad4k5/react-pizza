@@ -3,7 +3,6 @@
 .categories {
   ul {
     display: flex;
-
     li {
       background-color: #f9f9f9;
       padding: 13px 30px;
@@ -25,6 +24,31 @@
       &.active {
         background-color: #282828;
         color: #fff;
+      }
+    }
+  }
+}
+
+//
+//
+// Mobile styles:
+//
+//
+
+@media screen and (max-width: 420px) {
+  .categories {
+    padding: 5px 0;
+    white-space: nowrap;
+    overflow: auto;
+
+    width: 100%;
+    ul {
+      display: flex;
+      li {
+        font-size: 11px;
+        padding: 5px;
+        border-radius: 15px;
+        margin-right: 5px;
       }
     }
   }

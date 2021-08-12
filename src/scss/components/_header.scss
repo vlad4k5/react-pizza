@@ -30,3 +30,42 @@
     }
   }
 }
+
+//
+//
+// Mobile styles:
+//
+//
+
+@media screen and (max-width: 420px) {
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 8px;
+
+    .container {
+      width: 100%;
+    }
+
+    &__logo {
+      display: flex;
+      width: auto;
+
+      img {
+        width: 24px;
+        margin-right: 10px;
+      }
+
+      h1 {
+        font-size: 14px;
+        letter-spacing: 1%;
+      }
+
+      p {
+        font-size: 11px;
+      }
+    }
+  }
+}
