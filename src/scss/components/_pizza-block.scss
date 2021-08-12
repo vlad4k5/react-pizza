@@ -70,3 +70,64 @@
     letter-spacing: 0.015em;
   }
 }
+
+//
+//
+// Mobile styles:
+//
+//
+
+@media screen and(max-width: 420px) {
+  .pizza-block {
+    width: auto;
+    text-align: center;
+    margin-bottom: 20px;
+
+    &:not(:nth-of-type(4n)) {
+      margin-right: 0px;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    &__selector {
+      padding: 4px;
+      ul {
+        &:first-of-type {
+          margin-bottom: 0px;
+        }
+
+        li {
+          padding: 6px;
+          font-size: 10px;
+          @include noselect();
+          &.active {
+            background: #ffffff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+            border-radius: 5px;
+            cursor: auto;
+          }
+          &.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      margin-top: 10px;
+    }
+
+    &__price {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+}

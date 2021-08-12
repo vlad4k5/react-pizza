@@ -1,7 +1,7 @@
 import ContentLoader from "react-content-loader"
 
-const FakePizzaBlock = (props) => (
-  <ContentLoader
+const FakePizzaBlock = (props) => {
+   return window.innerWidth > 420 ? <ContentLoader
     className="pizza-block"
     speed={2}
     width={280}
@@ -22,6 +22,6 @@ const FakePizzaBlock = (props) => (
     <rect x="0" y="310" rx="10" ry="10" width="280" height="84" /> 
     <rect x="5" y="420" rx="5" ry="5" width="90" height="30" /> 
     <rect x="125" y="410" rx="20" ry="20" width="150" height="45" />
-  </ContentLoader>
-)
+  </ContentLoader> : null
+}
 export default FakePizzaBlock
