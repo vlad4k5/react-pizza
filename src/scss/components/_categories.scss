@@ -29,26 +29,19 @@
   }
 }
 
-//
-//
-// Mobile styles:
-//
-//
-
 @media screen and (max-width: 420px) {
   .categories {
     padding: 5px 0;
     white-space: nowrap;
     overflow: auto;
-
     width: 100%;
+    margin-top: 10px;
     ul {
-      display: flex;
       li {
-        font-size: 12px; //11px
-        padding: 5px 10px; // 5px
+        font-size: 12px;
+        padding: 8px 12px;
         border-radius: 15px;
-        margin-right: 15px; // 5
+        margin-right: 10px;
       }
     }
   }

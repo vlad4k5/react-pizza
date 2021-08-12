@@ -58,7 +58,7 @@
 @media screen and (max-width: 420px) {
   .sort {
     &__label {
-      font-size: 12px;
+      font-size: 13px;
       svg {
         margin-right: 7px;
         width: 7px;
@@ -66,16 +66,16 @@
     }
 
     &__popup {
-      left: 105px;
+      left: 112px;
       bottom: -4px;
       border-radius: 5px;
       padding: 0;
-      width: 190px;
+      width: 200px;
 
       ul {
         overflow: hidden;
         display: flex;
-        font-size: 12px;
+        font-size: 13px;
         li {
           padding: 5px;
         }

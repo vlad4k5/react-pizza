@@ -24,6 +24,7 @@ import { Link } from "react-router-dom"
 
   return <div className="container container--cart">
   {items.length !== 0? <div className="cart">
+    <div className="cart__wrapper">
     <div className="cart__top">
 
       <h2 className="content__title">
@@ -55,6 +56,7 @@ import { Link } from "react-router-dom"
         pizzasTotalPrice={i.pizzasTotalPrice} 
         {...i}/>)}
     </div>
+    </div>
 
     <div className="cart__bottom">
       <div className="cart__bottom-details">
@@ -76,14 +78,14 @@ import { Link } from "react-router-dom"
     </div>
   </div>
 
-  :<div class="cart cart--empty">
+  :<div className="cart cart--empty">
     <h2>Корзина пустая 😕</h2>
     <p>
       Вероятней всего, вы не заказывали ещё пиццу.<br />
       Для того, чтобы заказать пиццу, перейди на главную страницу.
     </p>
     <img src={emptyCart} alt="Empty cart" />
-    <Link to="/" class="button button--black">
+    <Link to="/" className="button button--black">
       <span>Вернуться назад</span>
     </Link>
   </div>}
