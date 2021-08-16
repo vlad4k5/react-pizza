@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import CartItem from "../components/CartItem"
-import { addPizzaToCart, clearCart, decreasePizzasCount, deletePizzaFromCart } from "../redux/reducers/cart"
+import { cartActions } from "../redux/reducers/cart"
 import emptyCart from "../assets/img/empty-cart.png"
 import { Link } from "react-router-dom"
 
@@ -10,16 +10,16 @@ import { Link } from "react-router-dom"
     const dispatch = useDispatch()
     
     const onClearCart = () => {
-      dispatch(clearCart())
+      dispatch(cartActions.clearCart())
     }
     const onClickPlus = (pizza) => {
-      dispatch(addPizzaToCart(pizza))
+      dispatch(cartActions.addPizzaToCart(pizza))
     }
     const onClickMinus = (pizza) => {
-      dispatch(decreasePizzasCount(pizza))
+      dispatch(cartActions.decreasePizzasCount(pizza))
     }
     const onClickRemovePizza = (pizza) => {
-      dispatch(deletePizzaFromCart(pizza))
+      dispatch(cartActions.deletePizzaFromCart(pizza))
     }
 
   return <div className="container container--cart">

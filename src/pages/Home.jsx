@@ -2,12 +2,12 @@ import Categories from "../components/Categories";
 import PizzaBlock from "../components/PizzaBlock";
 import SortPopup from "../components/SortPopup";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategory, setSortBy } from "../redux/reducers/filters";
+import { filterActions } from "../redux/reducers/filters";
 import { useEffect } from "react";
 import { fetchPizzas } from "../redux/reducers/pizzas";
 import FakePizzaBlock from "../components/FakePizzaBlock";
 import { useCallback } from "react";
-import { addPizzaToCart } from "../redux/reducers/cart";
+import { cartActions } from "../redux/reducers/cart";
 
 const categoryNames = ['Мясные','Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
 const sortItems = [
@@ -29,15 +29,15 @@ const Home = () => {
   }, [dispatch, sortBy, category]) // put dispatch into dependency cuz of warning "React Hook useEffect has a missing dependency: 'dispatch'"
 
   const onSelectCategory = useCallback((catIndex) => {
-    dispatch(setCategory(catIndex))
+    dispatch(filterActions.setCategory(catIndex))
   },[dispatch])
 
   const onSelectSortType = useCallback((type) => {
-    dispatch(setSortBy(type))
+    dispatch(filterActions.setSortBy(type))
   }, [dispatch])
 
   const handleAddPizzaToCart = (obj) => {
-    dispatch(addPizzaToCart(obj))
+    dispatch(cartActions.addPizzaToCart(obj))
   }
 
   return  <div className="container">
