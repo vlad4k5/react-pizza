@@ -1,7 +1,24 @@
-import React from "react"
+import React, { FC } from "react"
+import { AddPizzaToCartType, DecreasePizzasType } from "../redux/types/types"
 import Button from "./Button"
 
-const CartItem = React.memo(({id, price, name, type, size, pizzasAdded, pizzasTotalPrice, imageUrl, onClickPlus, onClickMinus, onClickRemovePizza}) => {
+
+type CartItemPropsType = {
+  id: number
+  price: number
+  name: string
+  type: string
+  size: number
+  pizzasAdded: number
+  pizzasTotalPrice: number
+  imageUrl: string
+  onClickPlus: (obj: AddPizzaToCartType) => void
+  onClickMinus: (obj: DecreasePizzasType) => void
+  onClickRemovePizza: (obj: DecreasePizzasType) => void
+}
+
+
+const CartItem: FC<CartItemPropsType> = React.memo(({id, price, name, type, size, pizzasAdded, pizzasTotalPrice, imageUrl, onClickPlus, onClickMinus, onClickRemovePizza}) => {
   
   const onAddPizza = () => {
       onClickPlus({id, imageUrl, name, price, size, type})

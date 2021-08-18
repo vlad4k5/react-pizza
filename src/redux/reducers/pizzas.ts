@@ -10,7 +10,7 @@ const initialState = {
     isLoaded: false
 }
 
-const pizzas = (state = initialState, action: ActionsType): InitialStateType => {
+const pizzas = (state = initialState, action: ActionsType): InitialPizzasStateType => {
     switch(action.type){
         case SET_PIZZAS: return {...state, items: action.payload as Array<PizzaItemType>, isLoaded: true}
         case SET_LOADING: return {...state, isLoaded: action.payload as boolean}
@@ -24,7 +24,7 @@ export const pizzasActions = {
     setLoading: (payload: boolean) => ({type: SET_LOADING, payload }  as const)
 }
 
-export const fetchPizzas = (sortBy: SortByType, category: string): ThunkType => async dispatch => {
+export const fetchPizzas = (sortBy: SortByType, category: number | null): ThunkType => async dispatch => {
     dispatch(pizzasActions.setLoading(false))
 
     const res = await axios.get(`https://my-json-server.typicode.com/vlad4k5/react-pizza/pizzas?${category !== null ? `category=${category}`: ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
@@ -34,6 +34,6 @@ export const fetchPizzas = (sortBy: SortByType, category: string): ThunkType => 
 
 export default pizzas;
 
-type InitialStateType = typeof initialState
+export type InitialPizzasStateType = typeof initialState
 type ActionsType = InferActionTypes<typeof pizzasActions>
 type ThunkType = CommonThunkCreatorType<ActionsType>

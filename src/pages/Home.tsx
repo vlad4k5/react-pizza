@@ -8,6 +8,14 @@ import { fetchPizzas } from "../redux/reducers/pizzas";
 import FakePizzaBlock from "../components/FakePizzaBlock";
 import { useCallback } from "react";
 import { cartActions } from "../redux/reducers/cart";
+import { RootState } from "../redux/store";
+import { AddPizzaToCartType, SortByType } from "../redux/types/types";
+
+
+
+
+
+
 
 const categoryNames = ['Мясные','Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
 const sortItems = [
@@ -16,13 +24,19 @@ const sortItems = [
   { name: 'алфавиту', type: 'name', order: 'asc' },
 ];
 
+export type SortItemsType = {
+  name: string
+  type: string
+  order: string
+}
+
 const Home = () => {
 
   const dispatch = useDispatch()
-  const items = useSelector(({pizzas}) => pizzas.items)
-  const cartItems = useSelector(({cart}) => cart.items)
-  const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded)
-  const {category, sortBy} = useSelector(({filters}) => filters)
+  const items = useSelector(({pizzas}: RootState) => pizzas.items)
+  const cartItems = useSelector(({cart}: RootState) => cart.items)
+  const isLoaded = useSelector(({pizzas}: RootState) => pizzas.isLoaded)
+  const {category, sortBy} = useSelector(({filters}: RootState) => filters)
 
   useEffect(() => {
       dispatch(fetchPizzas(sortBy, category))
@@ -32,11 +46,11 @@ const Home = () => {
     dispatch(filterActions.setCategory(catIndex))
   },[dispatch])
 
-  const onSelectSortType = useCallback((type) => {
+  const onSelectSortType = useCallback((type: SortByType) => {
     dispatch(filterActions.setSortBy(type))
   }, [dispatch])
 
-  const handleAddPizzaToCart = (obj) => {
+  const handleAddPizzaToCart = (obj: AddPizzaToCartType) => {
     dispatch(cartActions.addPizzaToCart(obj))
   }
 
@@ -45,9 +59,9 @@ const Home = () => {
     <Categories 
       activeCategory={category}
       items={categoryNames} 
-      onClickCategory={(category) => onSelectCategory(category) }/>
+      onClickCategory={(category: number | null) => onSelectCategory(category) }/>
     <SortPopup
-        onClickSortType={(type) => onSelectSortType(type)}
+        onClickSortType={(type: SortByType) => onSelectSortType(type)}
         items={sortItems}
         activeSortType={sortBy.type}/>
   </div>

@@ -1,25 +1,36 @@
-import React from "react"
+import React, { FC } from "react"
 import { useEffect, useRef, useState } from "react"
+import { SortItemsType } from "../pages/Home"
+import { SortByType } from "../redux/types/types"
 
-const SortPopup = React.memo(({items, activeSortType, onClickSortType}) => {
+
+type SortPopupPropsType = {
+  items: Array<SortItemsType>
+  activeSortType: string
+  onClickSortType: (type: SortByType) => void
+}
+
+
+
+const SortPopup: FC<SortPopupPropsType> = React.memo(({items, activeSortType, onClickSortType}) => {
   
   const [visiblePopup, setVisiblePopup] = useState(false)
-  const sortRef = useRef()
-  const activeLabel = items.find((obj) => obj.type === activeSortType).name;
+  const sortRef = useRef(null)
+  const activeLabel = items.find((obj) => obj.type === activeSortType)!.name;
 
   const toggleVisiblePopup = () => {
     setVisiblePopup(!visiblePopup)
   }
   
-  const handleOutsideClick = (e) => {
+  const handleOutsideClick = (e: any) => {
     const path = e.path || (e.composedPath && e.composedPath());
     if (!path.includes(sortRef.current)){
       setVisiblePopup(false)
     }
   }
 
-  const onSelectItem = (type) => {
-    onClickSortType(type)
+  const onSelectItem = (obj: SortByType) => {
+    onClickSortType(obj)
     setVisiblePopup(false)
   }
 
@@ -40,7 +51,7 @@ const SortPopup = React.memo(({items, activeSortType, onClickSortType}) => {
 
     <ul>
       {items.map((obj, index) => (<li 
-        onClick={() => onSelectItem(obj)} 
+        onClick={() => onSelectItem({type: obj.type, order: obj.order})} 
         className={activeSortType === obj.type ? 'active': ''} 
         key={`${obj.type} ${index}`}>{obj.name}</li>))}
     </ul>

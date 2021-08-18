@@ -1,9 +1,25 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import classnames from "classnames"
 import React from "react"
 import Button from "./Button"
+import { AddPizzaToCartType, PizzaCartItemType } from "../redux/types/types"
 
-const PizzaBlock = React.memo(({id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount, cartItems}) => {
+
+type PizzaBlockPropsType = {
+  id: number
+  imageUrl: string
+  name: string
+  price: Array<number>
+  types: Array<number>
+  sizes: Array<number>
+  onClickAddPizza: (obj: AddPizzaToCartType) => void
+  addedCount: number
+  cartItems: Array<PizzaCartItemType>
+}
+
+
+
+const PizzaBlock: FC<PizzaBlockPropsType> = React.memo(({id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount, cartItems}) => {
 
   const availableTypes = ["тонкое", "традиционное"]
   const availableSizes = [25,30,35]
@@ -13,11 +29,11 @@ const PizzaBlock = React.memo(({id, imageUrl, name, price, types, sizes, onClick
   
   let currentPizzasAdded = cartItems.filter(item => item.id === id && item.size === activeSize && item.type === availableTypes[activeType]).reduce((sum, i) => i.pizzasAdded + sum, 0)
 
-  const onSelectType = (index) => {
+  const onSelectType = (index: number) => {
     setActiveType(index)
   }
 
-  const onSelectSize = (size, index) => {
+  const onSelectSize = (size: number, index: number) => {
     setActiveSize(size)
     setActivePrice(price[index])
   }

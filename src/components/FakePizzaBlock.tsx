@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader"
 
-const FakePizzaBlock = (props) => {
+const FakePizzaBlock = () => {
    return window.innerWidth > 420 ? <ContentLoader
     className="pizza-block"
     speed={2}
@@ -9,7 +9,6 @@ const FakePizzaBlock = (props) => {
     viewBox="0 0 280 456"
     backgroundColor="#f2f2f2"
     foregroundColor="#ecebeb"
-    {...props}
   >
     <rect x="534" y="113" rx="0" ry="0" width="88" height="71" /> 
     <rect x="573" y="182" rx="10" ry="10" width="150" height="90" /> 

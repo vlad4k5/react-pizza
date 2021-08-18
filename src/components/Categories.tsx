@@ -1,6 +1,13 @@
-import React from "react"
+import React, { FC } from "react"
 
-const Categories = React.memo(({activeCategory, items, onClickCategory}) => {
+type CategoryPropsType = {
+  activeCategory: null | number
+  items: Array<string>
+  onClickCategory: (category: null | number) => void
+}
+
+
+const Categories: FC<CategoryPropsType> = React.memo(({activeCategory, items, onClickCategory}) => {
   return <div className="categories">
   <ul>
     <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickCategory(null)}>Все</li>

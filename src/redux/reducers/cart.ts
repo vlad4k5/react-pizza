@@ -1,4 +1,4 @@
-import { PizzaCartItemType, DecreasePizzasType } from './../types/types';
+import { PizzaCartItemType, DecreasePizzasType, AddPizzaToCartType } from './../types/types';
 import { InferActionTypes } from './../store';
 const ADD_PIZZA_TO_CART = "cart/ADD_PIZZA_TO_CART";
 const DECREASE_PIZZAS_COUNT = "cart/DECREASE_PIZZAS_COUNT";
@@ -64,7 +64,7 @@ const cart = (state = initialState, action: ActionsType): InitialStateType => {
 
 
 export const cartActions = {
-    addPizzaToCart: (payload: PizzaCartItemType) => ({type: ADD_PIZZA_TO_CART, payload } as const),
+    addPizzaToCart: (payload: AddPizzaToCartType) => ({type: ADD_PIZZA_TO_CART, payload } as const),
     decreasePizzasCount: (payload: DecreasePizzasType) => ({type: DECREASE_PIZZAS_COUNT, payload } as const),
     deletePizzaFromCart: (payload: DecreasePizzasType) => ({type: DELETE_PIZZA_FROM_CART, payload } as const),
     clearCart: () => ({type: CLEAR_CART } as const)

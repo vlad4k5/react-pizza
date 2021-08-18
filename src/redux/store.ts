@@ -9,8 +9,8 @@ const rootReducer = combineReducers({filters, pizzas, cart})
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  // need for using redux DevTools
 
-type RootReducerType = typeof rootReducer
-
+export type RootReducerType = typeof rootReducer
+export type RootState = ReturnType<typeof store.getState>
 
 
 export type AppStateType = ReturnType<RootReducerType>

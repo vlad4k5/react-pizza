@@ -3,22 +3,24 @@ import CartItem from "../components/CartItem"
 import { cartActions } from "../redux/reducers/cart"
 import emptyCart from "../assets/img/empty-cart.png"
 import { Link } from "react-router-dom"
+import { AddPizzaToCartType, DecreasePizzasType } from "../redux/types/types"
+import { RootState } from "../redux/store"
 
  const Cart = () => {
 
-    const {items, totalPrice, totalCount} = useSelector(({cart}) => cart)
+    const {items, totalPrice, totalCount} = useSelector(({cart}: RootState) => cart)
     const dispatch = useDispatch()
     
     const onClearCart = () => {
       dispatch(cartActions.clearCart())
     }
-    const onClickPlus = (pizza) => {
+    const onClickPlus = (pizza: AddPizzaToCartType) => {
       dispatch(cartActions.addPizzaToCart(pizza))
     }
-    const onClickMinus = (pizza) => {
+    const onClickMinus = (pizza: DecreasePizzasType) => {
       dispatch(cartActions.decreasePizzasCount(pizza))
     }
-    const onClickRemovePizza = (pizza) => {
+    const onClickRemovePizza = (pizza: DecreasePizzasType) => {
       dispatch(cartActions.deletePizzaFromCart(pizza))
     }
 
@@ -52,8 +54,6 @@ import { Link } from "react-router-dom"
         onClickPlus={onClickPlus}
         onClickMinus={onClickMinus}
         onClickRemovePizza={onClickRemovePizza}
-        pizzasAdded={i.pizzasAdded} 
-        pizzasTotalPrice={i.pizzasTotalPrice} 
         {...i}/>)}
     </div>
     </div>

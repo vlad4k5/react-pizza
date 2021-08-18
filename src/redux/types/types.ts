@@ -18,14 +18,16 @@ export type PizzaItemType = {
     rating: number
 }
 
-
-export type PizzaCartItemType = {
+export type AddPizzaToCartType = {
     id: number
     imageUrl: string
     name: string
-    type: number
+    type: string // was number
     size: number
     price: number
+}
+
+export interface PizzaCartItemType extends AddPizzaToCartType {
     pizzasAdded: number
     pizzasTotalPrice: number
 }
@@ -33,7 +35,7 @@ export type PizzaCartItemType = {
 export type DecreasePizzasType = {
     id: number
     size: number
-    type: number
+    type: string // was number
 }
 
 
