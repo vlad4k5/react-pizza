@@ -3,7 +3,8 @@
 **Stack:**
 
 - ReactJS, hooks
-  -Redux, redux-thunk
+- Redux, redux-thunk
+- Typescript
 - React Router
 - Axios
 - SCSS
