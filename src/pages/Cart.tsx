@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import CartItem from "../components/CartItem"
-import { cartActions } from "../redux/reducers/cart"
+import { cartActions } from "../store/reducers/cart"
 import emptyCart from "../assets/img/empty-cart.png"
 import { Link } from "react-router-dom"
-import { AddPizzaToCartType, DecreasePizzasType } from "../redux/types/types"
-import { RootState } from "../redux/store"
+import { AddPizzaToCartType, DecreasePizzasType } from "../store/types/types"
+import { RootState } from "../store/store"
 
  const Cart = () => {
 

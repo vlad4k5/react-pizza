@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import { useEffect, useRef, useState } from "react"
 import { SortItemsType } from "../pages/Home"
-import { SortByType } from "../redux/types/types"
+import { SortByType } from "../store/types/types"
 
 
 type SortPopupPropsType = {

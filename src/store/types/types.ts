@@ -1,4 +1,4 @@
-import { AppStateType } from './../store';
+import { AppStateType } from '../store';
 import { Action } from "redux"
 import { ThunkAction } from "redux-thunk"
 

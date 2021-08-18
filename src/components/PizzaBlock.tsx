@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import classnames from "classnames"
 import React from "react"
 import Button from "./Button"
-import { AddPizzaToCartType, PizzaCartItemType } from "../redux/types/types"
+import { AddPizzaToCartType, PizzaCartItemType } from "../store/types/types"
 
 
 type PizzaBlockPropsType = {

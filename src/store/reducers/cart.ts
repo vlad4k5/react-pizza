@@ -1,5 +1,5 @@
-import { PizzaCartItemType, DecreasePizzasType, AddPizzaToCartType } from './../types/types';
-import { InferActionTypes } from './../store';
+import { PizzaCartItemType, DecreasePizzasType, AddPizzaToCartType } from '../types/types';
+import { InferActionTypes } from '../store';
 const ADD_PIZZA_TO_CART = "cart/ADD_PIZZA_TO_CART";
 const DECREASE_PIZZAS_COUNT = "cart/DECREASE_PIZZAS_COUNT";
 const DELETE_PIZZA_FROM_CART = "cart/DELETE_PIZZA_FROM_CART";

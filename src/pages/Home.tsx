@@ -2,14 +2,14 @@ import Categories from "../components/Categories";
 import PizzaBlock from "../components/PizzaBlock";
 import SortPopup from "../components/SortPopup";
 import { useDispatch, useSelector } from "react-redux";
-import { filterActions } from "../redux/reducers/filters";
+import { filterActions } from "../store/reducers/filters";
 import { useEffect } from "react";
-import { fetchPizzas } from "../redux/reducers/pizzas";
+import { fetchPizzas } from "../store/reducers/pizzas";
 import FakePizzaBlock from "../components/FakePizzaBlock";
 import { useCallback } from "react";
-import { cartActions } from "../redux/reducers/cart";
-import { RootState } from "../redux/store";
-import { AddPizzaToCartType, SortByType } from "../redux/types/types";
+import { cartActions } from "../store/reducers/cart";
+import { RootState } from "../store/store";
+import { AddPizzaToCartType, SortByType } from "../store/types/types";
 
 
 

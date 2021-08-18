@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { AddPizzaToCartType, DecreasePizzasType } from "../redux/types/types"
+import { AddPizzaToCartType, DecreasePizzasType } from "../store/types/types"
 import Button from "./Button"
 
 

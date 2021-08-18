@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import logo from "../assets/img/pizza-logo.svg"
-import { RootState } from "../redux/store"
+import { RootState } from "../store/store"
 import Button from "./Button"
 
 const Header = () => {

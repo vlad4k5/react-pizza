@@ -55,7 +55,35 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
+  .sort {
+    &__label {
+      font-size: 13px;
+      svg {
+        margin-right: 7px;
+        width: 7px;
+      }
+    }
+
+    &__popup {
+      left: 112px;
+      bottom: -4px;
+      border-radius: 5px;
+      padding: 0;
+      width: 200px;
+
+      ul {
+        display: flex;
+        font-size: 13px;
+        li {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
   .sort {
     &__label {
       font-size: 13px;

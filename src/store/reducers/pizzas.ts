@@ -1,5 +1,5 @@
-import { InferActionTypes } from './../store';
-import { PizzaItemType, SortByType, CommonThunkCreatorType } from './../types/types';
+import { InferActionTypes } from '../store';
+import { PizzaItemType, SortByType, CommonThunkCreatorType } from '../types/types';
 import axios from "axios";
 
 const SET_PIZZAS = "pizzas/SET_PIZZAS";
