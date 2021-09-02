@@ -1,7 +1,7 @@
 import ContentLoader from "react-content-loader"
 
 const FakePizzaBlock = () => {
-   return window.innerWidth > 420 ? <ContentLoader
+   return window.innerWidth > 600 ? <ContentLoader
     className="pizza-block"
     speed={2}
     width={280}
