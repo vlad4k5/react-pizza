@@ -26,7 +26,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
   addedCount,
   cartItems,
 }) => {
-  const availableTypes = ['тонкое', 'традиционное']
+  const availableTypes = ['тонке', 'традиційне']
   const availableSizes = [25, 30, 35]
   const [activeType, setActiveType] = useState(types[0])
   const [activeSize, setActiveSize] = useState(sizes[0])
@@ -109,7 +109,7 @@ const PizzaBlock: FC<PizzaBlockPropsType> = ({
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Додати</span>
           {currentPizzasAdded !== 0 && <i>{currentPizzasAdded}</i>}
         </Button>
       </div>

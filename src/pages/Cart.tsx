@@ -100,7 +100,7 @@ const Cart = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span onClick={onClearCart}>Очистить корзину</span>
+                <span onClick={onClearCart}>Очистити корзину</span>
               </div>
             </div>
 
@@ -122,11 +122,11 @@ const Cart = () => {
             <div className="cart__bottom-details">
               <span>
                 {' '}
-                Всего пицц: <b>{totalCount} шт.</b>{' '}
+                Всього піц: <b>{totalCount} шт.</b>{' '}
               </span>
               <span>
                 {' '}
-                Сумма заказа: <b>{totalPrice} грн.</b>{' '}
+                Сума замовлення: <b>{totalPrice} грн.</b>{' '}
               </span>
             </div>
             <div className="cart__bottom-buttons">
@@ -146,26 +146,22 @@ const Cart = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span>Вернуться назад</span>
+                <span>Повернутися назад</span>
               </Link>
 
               <div className="button pay-btn">
-                <span>Оплатить сейчас</span>
+                <span>Оплатити зараз</span>
               </div>
             </div>
           </div>
         </div>
       ) : (
         <div className="cart cart--empty">
-          <h2>Корзина пустая 😕</h2>
-          <p>
-            Вероятней всего, вы не заказывали ещё пиццу.
-            <br />
-            Для того, чтобы заказать пиццу, перейди на главную страницу.
-          </p>
+          <h2>Корзина порожня 😕</h2>
+          <p>Перейдіть на головну сторінку щоб додати піцу до кошику.</p>
           <img src={emptyCart} alt="Empty cart" />
           <Link to="/" className="button button--black">
-            <span>Вернуться назад</span>
+            <span>Повернутися назад</span>
           </Link>
         </div>
       )}

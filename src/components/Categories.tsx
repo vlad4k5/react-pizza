@@ -14,7 +14,7 @@ const Categories: FC<CategoryPropsType> = ({ activeCategory, items, onClickCateg
           className={activeCategory === null ? 'active' : ''}
           onClick={() => onClickCategory(null)}
         >
-          Все
+          Всі
         </li>
 
         {items &&

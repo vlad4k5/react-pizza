@@ -50,7 +50,7 @@ const SortPopup: FC<SortPopupPropsType> = ({ items, activeSortType, onClickSortT
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>Сортування за:</b>
         <span onClick={toggleVisiblePopup}>{activeLabel}</span>
       </div>
 

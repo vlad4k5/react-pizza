@@ -50,7 +50,7 @@ const CartItem: FC<CartItemPropsType> = ({
       <div className="cart__item-info">
         <h3>{name}</h3>
         <p>
-          {type} тесто, {size} см.
+          {type} тісто, {size} см.
         </p>
       </div>
 

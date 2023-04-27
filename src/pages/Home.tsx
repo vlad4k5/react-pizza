@@ -11,11 +11,11 @@ import { cartActions } from '../store/reducers/cart'
 import { RootState } from '../store/store'
 import { AddPizzaToCartType, SortByType } from '../store/types/types'
 
-const categoryNames = ['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
+const categoryNames = ['Мясні', 'Вегетаріанські', 'Гриль', 'Гострі', 'Закриті']
 const sortItems = [
-  { name: 'популярности', type: 'rating', order: 'desc' },
-  { name: 'цене', type: 'price', order: 'asc' },
-  { name: 'алфавиту', type: 'name', order: 'asc' },
+  { name: 'популярністю', type: 'rating', order: 'desc' },
+  { name: 'ціною', type: 'price', order: 'asc' },
+  { name: 'алфавіту', type: 'name', order: 'asc' },
 ]
 
 export type SortItemsType = {
@@ -68,9 +68,7 @@ const Home = () => {
         />
       </div>
 
-      <h2 className="content__title">
-        {category === null ? 'Все' : categoryNames[category]} пиццы
-      </h2>
+      <h2 className="content__title">{category === null ? 'Всі' : categoryNames[category]} піци</h2>
       <div className="content__items">
         {isLoaded
           ? items.map(i => (
