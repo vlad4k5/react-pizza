@@ -1,5 +1,6 @@
 import { SortByType } from '../types/types'
 import { InferActionTypes } from '../store'
+
 const SET_SORT_BY = 'filters/SET_SORT_BY'
 const SET_CATEGORY = 'filters/SET_CATEGORY'
 

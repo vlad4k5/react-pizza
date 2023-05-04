@@ -33,7 +33,9 @@
     "eject": "react-scripts eject",
     "server": "npx json-server --watch public/db.json --port=3001",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "prettier": {
     "singleQuote": true,

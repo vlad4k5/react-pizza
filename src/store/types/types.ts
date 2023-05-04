@@ -22,7 +22,7 @@ export type AddPizzaToCartType = {
   id: number
   imageUrl: string
   name: string
-  type: string // was number
+  type: string
   size: number
   price: number
 }

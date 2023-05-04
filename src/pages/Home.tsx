@@ -33,7 +33,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category))
-  }, [dispatch, sortBy, category]) // put dispatch into dependency cuz of warning "React Hook useEffect has a missing dependency: 'dispatch'"
+  }, [dispatch, sortBy, category])
 
   const onSelectCategory = useCallback(
     catIndex => {

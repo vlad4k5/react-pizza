@@ -1,5 +1,6 @@
 import { PizzaCartItemType, DecreasePizzasType, AddPizzaToCartType } from '../types/types'
 import { InferActionTypes } from '../store'
+
 const ADD_PIZZA_TO_CART = 'cart/ADD_PIZZA_TO_CART'
 const DECREASE_PIZZAS_COUNT = 'cart/DECREASE_PIZZAS_COUNT'
 const DELETE_PIZZA_FROM_CART = 'cart/DELETE_PIZZA_FROM_CART'
@@ -33,7 +34,7 @@ const cart = (state = initialState, action: ActionsType): InitialStateType => {
       } else {
         const pizzaIndex = state.items.indexOf(isPizzaAdded)
         const obj = { ...state }
-        obj.items = [...state.items] // count of added pizzas is not rerendering without this
+        obj.items = [...state.items]
         obj.items[pizzaIndex].pizzasAdded += 1
         obj.items[pizzaIndex].pizzasTotalPrice += action.payload.price
         obj.totalCount += 1
